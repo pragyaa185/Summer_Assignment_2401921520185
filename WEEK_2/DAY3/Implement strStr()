@@ -1,0 +1,21 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int hayLen = haystack.length();
+        int needleLen = needle.length();
+        
+        // Agar needle badi hai toh mil hi nahi sakti
+        if (needleLen > hayLen) return -1;
+        
+        // Loop wahan tak chalega jahan tak needle fit ho sake
+        for (int i = 0; i <= hayLen - needleLen; i++) {
+            // Haystack se needle ke size ka tukda nikalo
+            String currentPiece = haystack.substring(i, i + needleLen);
+            
+            if (currentPiece.equals(needle)) {
+                return i; // Pehla occurrence mil gaya
+            }
+        }
+        
+        return -1;
+    }
+}
