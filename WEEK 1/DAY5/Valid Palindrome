@@ -1,0 +1,28 @@
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        int frontPointer = 0;
+        int backPointer = s.length() - 1;
+        
+        while (frontPointer < backPointer) {
+            char frontItem = s.charAt(frontPointer);
+            char backItem = s.charAt(backPointer);
+            
+           
+            if (!Character.isLetterOrDigit(frontItem)) {
+                frontPointer = frontPointer + 1;
+            } 
+            else if (!Character.isLetterOrDigit(backItem)) {
+                backPointer = backPointer - 1;
+            } 
+            else {
+                if (Character.toLowerCase(frontItem) != Character.toLowerCase(backItem)) {
+                    return false;
+                }
+                frontPointer = frontPointer + 1;
+                backPointer = backPointer - 1;
+            }
+        }
+        return true;
+    }
+}

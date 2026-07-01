@@ -1,0 +1,27 @@
+
+class Solution {
+    public int maxArea(int[] height) {
+        int totalwm=0;
+        int lw=0;
+        int rw=height.length-1;
+        while(lw<rw){
+            int width=rw-lw;
+            int lheight = height[lw];
+            if(height[rw]<lheight){
+                lheight=height[rw];
+            }
+            int cwater= width*lheight;
+            if(cwater>totalwm){
+                totalwm=cwater;
+            }
+            if(height[lw]<height[rw]){
+                lw++;
+            }
+            else{
+                rw=rw-1;
+            }
+        }
+        return totalwm;
+        
+    }
+}

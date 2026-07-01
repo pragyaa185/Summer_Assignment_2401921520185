@@ -1,0 +1,24 @@
+
+class Solution {
+    public int[][] matrixReshape(int[][] mat, int r, int c) {
+        int Orows = mat.length;
+        int Ocols=mat[0].length;
+        if(Orows*Ocols !=r*c){
+            return mat;
+        }
+        int[][] outMat=new int[r][c];
+        int itemTracker=0;
+        for(int i =0;i<Orows;i++){
+            for(int j=0;j<Ocols;j++){
+                int rowPos =itemTracker/c;
+                int colPos=itemTracker%c;
+
+                outMat[rowPos][colPos]=mat[i][j];
+                itemTracker++;
+            }
+
+        }
+        return outMat;
+        
+    }
+}

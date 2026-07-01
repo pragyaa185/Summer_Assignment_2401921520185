@@ -1,0 +1,26 @@
+
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        int t =nums.length;
+        int[] finalresult= new int[t];
+        int ls=0;
+        int rs=t-1;
+        int bi=t-1;
+        while(ls<=rs){
+            int lsq =nums[ls]*nums[ls];
+            int rsq =nums[rs]*nums[rs];
+            if(lsq>rsq){
+                finalresult[bi]=lsq;
+                ls=ls+1;
+
+            }
+            else {
+                finalresult[bi]=rsq;
+                rs=rs-1;
+            }
+            bi=bi-1;
+        }
+        return finalresult;
+        
+    }
+}

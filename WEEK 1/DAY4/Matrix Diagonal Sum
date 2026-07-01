@@ -1,0 +1,15 @@
+
+class Solution {
+    public int diagonalSum(int[][] mat) {
+        int gridSz=mat.length;
+        int sumTotal=0;
+        for(int i=0;i<gridSz;i++){
+            sumTotal=sumTotal+ mat[i][i] + mat[i][gridSz-1-i];
+        }
+        if(gridSz%2!=0){
+            int centerPos=gridSz/2;
+            sumTotal=sumTotal - mat[centerPos][centerPos];
+        }
+        return sumTotal;
+    }
+}
